@@ -1,184 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>School Admission Enquiry</title>
+<title>School Management System | Admission Enquiry</title>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 * {
     box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #f4f6fb;
+
     color: #172033;
 }
 
-/* ================================
-   MAIN CONTAINER
-================================ */
 
-.school-admission {
-    width: 100%;
-    max-width: 1080px;
-    margin: 45px auto;
-    padding: 0 20px;
-}
-
-.admission-card {
-    background: #ffffff;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid #e7eaf2;
-    box-shadow: 0 25px 70px rgba(35, 48, 90, 0.13);
-    animation: cardEnter 0.7s ease-out;
-}
-
-@keyframes cardEnter {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ================================
+/* =========================================================
    HEADER
-================================ */
+========================================================= */
 
-.admission-header {
-    position: relative;
-    padding: 46px 50px;
-    background: linear-gradient(135deg, #243b8f 0%, #5b4bb7 100%);
-    color: #ffffff;
-    overflow: hidden;
-}
+.topbar {
 
-.admission-header:before {
-    content: "";
-    position: absolute;
-    width: 330px;
-    height: 330px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    right: -100px;
-    top: -170px;
-}
+    height: 72px;
 
-.admission-header:after {
-    content: "";
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    left: -100px;
-    bottom: -150px;
-}
+    background: #ffffff;
 
-.school-badge {
-    position: relative;
-    z-index: 2;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 8px 15px;
-
-    border-radius: 50px;
-
-    background: rgba(255,255,255,0.14);
-
-    font-size: 13px;
-    font-weight: 600;
-
-    margin-bottom: 18px;
-
-    backdrop-filter: blur(10px);
-}
-
-.school-icon {
-    width: 32px;
-    height: 32px;
+    border-bottom: 1px solid #e7eaf2;
 
     display: flex;
+
     align-items: center;
-    justify-content: center;
 
-    border-radius: 10px;
+    justify-content: space-between;
 
-    background: rgba(255,255,255,0.18);
+    padding: 0 7%;
 
-    font-size: 18px;
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
 }
 
-.admission-header h1 {
-    position: relative;
-    z-index: 2;
 
-    margin: 0;
+.brand {
 
-    font-size: 36px;
-    line-height: 1.2;
-
-    font-weight: 700;
-}
-
-.admission-header p {
-    position: relative;
-    z-index: 2;
-
-    max-width: 680px;
-
-    margin: 14px 0 0;
-
-    font-size: 15px;
-    line-height: 1.7;
-
-    color: rgba(255,255,255,0.9);
-}
-
-/* ================================
-   FORM BODY
-================================ */
-
-.admission-body {
-    padding: 45px 50px;
-}
-
-.form-section {
-    margin-bottom: 35px;
-}
-
-.section-heading {
     display: flex;
+
     align-items: center;
 
     gap: 12px;
 
-    margin-bottom: 22px;
+    font-weight: 700;
+
+    color: #253b91;
+
+    letter-spacing: .1px;
 }
 
-.section-number {
-    width: 36px;
-    height: 36px;
+
+.logo {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 12px;
 
     display: flex;
+
     align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3949a3,
+            #6555c7
+        );
+
+    color: #ffffff;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 8px 20px rgba(73,76,173,.20);
+}
+
+
+.brand-text {
+
+    line-height: 1.15;
+
+    font-size: 15px;
+}
+
+
+.brand-text small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8b92a5;
+
+    font-size: 10px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    padding:
+        90px
+        20px
+        125px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #243b8f 0%,
+            #5b4bb7 100%
+        );
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.07);
+
+    right: -120px;
+
+    top: -230px;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+
+    height: 330px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.055);
+
+    left: -130px;
+
+    bottom: -240px;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 780px;
+
+    margin: auto;
+
+    animation:
+        heroEnter .8s ease-out;
+}
+
+
+@keyframes heroEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px
+        16px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 22px;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.hero h1 {
+
+    margin: 0;
+
+    font-size: 45px;
+
+    line-height: 1.14;
+
+    font-weight: 700;
+
+    letter-spacing: -.7px;
+}
+
+
+.hero p {
+
+    max-width: 650px;
+
+    margin:
+        18px
+        auto
+        30px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.88);
+}
+
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        14px
+        25px;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #3949a3;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 12px 28px
+        rgba(0,0,0,.16);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.hero-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 17px 34px
+        rgba(0,0,0,.20);
+}
+
+
+/* =========================================================
+   FORM AREA
+========================================================= */
+
+.form-area {
+
+    width: 100%;
+
+    max-width: 1060px;
+
+    margin:
+        -65px
+        auto
+        70px;
+
+    padding:
+        0
+        20px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.form-card {
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        #e7eaf2;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px
+        rgba(35,48,90,.14);
+
+    animation:
+        formEnter .8s ease-out;
+}
+
+
+@keyframes formEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   FORM TITLE
+========================================================= */
+
+.form-heading {
+
+    padding:
+        32px
+        45px;
+
+    border-bottom:
+        1px solid
+        #edf0f5;
+
+    background: #ffffff;
+}
+
+
+.form-heading h2 {
+
+    margin: 0;
+
+    font-size: 23px;
+
+    color: #1c2745;
+}
+
+
+.form-heading p {
+
+    margin:
+        8px
+        0
+        0;
+
+    color: #858da1;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM BODY
+========================================================= */
+
+.admission-body {
+
+    padding:
+        40px
+        45px;
+}
+
+
+.form-section {
+
+    margin-bottom: 34px;
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 21px;
+}
+
+
+.section-number {
+
+    width: 36px;
+
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
     justify-content: center;
 
     border-radius: 10px;
@@ -188,76 +510,104 @@ body {
     color: #4f46a5;
 
     font-size: 13px;
+
     font-weight: 700;
 }
 
-.section-heading h2 {
+
+.section-heading h3 {
+
     margin: 0;
 
-    font-size: 18px;
+    font-size: 17px;
 
     color: #1c2745;
 }
 
+
 .section-heading span {
+
     color: #9299aa;
+
     font-size: 12px;
 }
 
-/* ================================
+
+/* =========================================================
    GRID
-================================ */
+========================================================= */
 
 .form-grid {
+
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
 
     gap: 20px;
 }
 
+
 .form-group {
+
     min-width: 0;
 }
 
+
 .form-group.full {
-    grid-column: 1 / -1;
+
+    grid-column:
+        1 / -1;
 }
 
-/* ================================
+
+/* =========================================================
    LABELS
-================================ */
+========================================================= */
 
 .form-group label {
+
     display: block;
 
     margin-bottom: 8px;
 
+    color: #34405b;
+
     font-size: 13px;
 
     font-weight: 600;
-
-    color: #34405b;
 }
 
+
 .required {
+
     color: #e05252;
+
     margin-left: 3px;
 }
 
-/* ================================
+
+/* =========================================================
    INPUTS
-================================ */
+========================================================= */
 
 .form-group input,
 .form-group select {
+
     width: 100%;
 
     height: 48px;
 
-    padding: 0 15px;
+    padding:
+        0
+        15px;
 
-    border: 1px solid #dfe3ed;
+    border:
+        1px solid
+        #dfe3ed;
 
     border-radius: 11px;
 
@@ -265,80 +615,93 @@ body {
 
     color: #202940;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size: 14px;
 
     outline: none;
 
     transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
 }
+
 
 .form-group input:hover,
 .form-group select:hover {
+
     border-color: #b9c0d5;
+
     background: #ffffff;
 }
 
+
 .form-group input:focus,
 .form-group select:focus {
+
     border-color: #5965c5;
 
     background: #ffffff;
 
     box-shadow:
-        0 0 0 4px rgba(89,101,197,0.10);
+        0 0 0 4px
+        rgba(89,101,197,.10);
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
+
 .form-group input::placeholder {
+
     color: #a2a8b8;
 }
 
-/* ================================
-   ZOHO DATE PICKER
-================================ */
 
-.tempCalDiv {
-    display: none;
+/* =========================================================
+   DATE PICKER
+========================================================= */
 
-    margin: 0;
+.date-wrapper {
 
-    position: absolute;
-
-    z-index: 1000;
-
-    background-color: #fff;
-
-    border: 1px solid #c0c6cc;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-
-    border-radius: 8px;
+    position: relative;
 }
 
-/* ================================
+
+.date-input {
+
+    cursor: text;
+}
+
+
+/* =========================================================
    DIVIDER
-================================ */
+========================================================= */
 
 .form-divider {
+
     height: 1px;
 
     background: #edf0f5;
 
-    margin: 5px 0 35px;
+    margin:
+        5px
+        0
+        34px;
 }
 
-/* ================================
+
+/* =========================================================
    BOTTOM
-================================ */
+========================================================= */
 
 .form-bottom {
+
     display: flex;
 
     align-items: center;
@@ -347,10 +710,12 @@ body {
 
     gap: 20px;
 
-    padding-top: 5px;
+    padding-top: 3px;
 }
 
+
 .security-note {
+
     display: flex;
 
     align-items: center;
@@ -360,15 +725,23 @@ body {
     color: #7c8498;
 
     font-size: 12px;
+
+    line-height: 1.5;
 }
 
+
 .security-icon {
+
     width: 32px;
+
     height: 32px;
+
+    flex-shrink: 0;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     border-radius: 9px;
@@ -378,24 +751,33 @@ body {
     font-size: 14px;
 }
 
-/* ================================
+
+/* =========================================================
    BUTTONS
-================================ */
+========================================================= */
 
 .form-buttons {
+
     display: flex;
 
     gap: 10px;
 }
 
+
 .school-btn {
+
     height: 46px;
 
-    padding: 0 25px;
+    padding:
+        0
+        24px;
 
     border-radius: 11px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size: 13px;
 
@@ -404,61 +786,87 @@ body {
     cursor: pointer;
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        opacity .25s ease;
 }
 
+
 .school-btn-primary {
+
     border: none;
 
     color: #ffffff;
 
-    background: linear-gradient(
-        135deg,
-        #3949a3,
-        #6555c7
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #3949a3,
+            #6555c7
+        );
 
     box-shadow:
-        0 8px 20px rgba(73,76,173,0.25);
+        0 8px 20px
+        rgba(73,76,173,.25);
 }
+
 
 .school-btn-primary:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 12px 28px rgba(73,76,173,0.32);
+        0 12px 28px
+        rgba(73,76,173,.32);
 }
 
-.school-btn-primary:active {
-    transform: translateY(0);
+
+.school-btn-primary:disabled {
+
+    cursor: wait;
+
+    transform: none;
 }
+
 
 .school-btn-secondary {
+
     color: #4b556f;
 
     background: #f3f5f9;
 
-    border: 1px solid #e3e6ed;
+    border:
+        1px solid
+        #e3e6ed;
 }
+
 
 .school-btn-secondary:hover {
+
     background: #e9ecf3;
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
-/* ================================
+
+/* =========================================================
    FOOTER
-================================ */
+========================================================= */
 
 .admission-footer {
-    padding: 18px 50px;
+
+    padding:
+        18px
+        45px;
 
     background: #fafbfe;
 
-    border-top: 1px solid #edf0f5;
+    border-top:
+        1px solid
+        #edf0f5;
 
     display: flex;
 
@@ -471,7 +879,9 @@ body {
     color: #8b92a5;
 }
 
+
 .crm-status {
+
     display: flex;
 
     align-items: center;
@@ -479,8 +889,11 @@ body {
     gap: 8px;
 }
 
+
 .status-dot {
+
     width: 7px;
+
     height: 7px;
 
     border-radius: 50%;
@@ -488,125 +901,101 @@ body {
     background: #38a169;
 
     box-shadow:
-        0 0 0 4px rgba(56,161,105,0.10);
+        0 0 0 4px
+        rgba(56,161,105,.10);
 }
 
-/* ================================
-   ZOHO ERROR / HELP
-================================ */
 
-.zcwf_col_help {
-    display: none !important;
-}
-
-.zcwf_row:after,
-.zcwf_col_fld:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* ================================
-   CALENDAR
-================================ */
-
-#calenDiv {
-    padding: 10px;
-
-    display: table;
-
-    width: 195px;
-
-    font-family: Arial, Helvetica, sans-serif !important;
-}
-
-#calenDiv table.calDay {
-    border-spacing: 6px;
-
-    margin-top: 0;
-}
-
-#calenDiv table.calDay td {
-    padding: 3px 4px;
-
-    font-size: 11px;
-}
-
-#calenDiv table.calDay th {
-    padding: 3px;
-
-    font-size: 11px;
-
-    color: #888;
-
-    text-align: center;
-
-    font-weight: normal;
-}
-
-#calenDiv table.calDay td:hover {
-    background: #eef0ff;
-}
-
-#calenDiv table.calDay td.sel {
-    color: #ffffff;
-
-    background: #5965c5;
-
-    border-radius: 4px;
-}
-
-#calenDiv .aligncenter {
-    text-align: center;
-}
-
-/* ================================
+/* =========================================================
    MOBILE
-================================ */
+========================================================= */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width:700px) {
 
-    .school-admission {
-        margin: 15px auto;
+    .topbar {
 
-        padding: 0 10px;
+        padding:
+            0
+            20px;
     }
 
-    .admission-card {
-        border-radius: 18px;
+
+    .brand-text {
+
+        font-size: 13px;
     }
 
-    .admission-header {
-        padding: 32px 25px;
+
+    .hero {
+
+        padding:
+            65px
+            20px
+            105px;
     }
 
-    .admission-header h1 {
-        font-size: 28px;
+
+    .hero h1 {
+
+        font-size: 32px;
     }
 
-    .admission-header p {
+
+    .hero p {
+
         font-size: 14px;
     }
 
-    .admission-body {
-        padding: 30px 22px;
+
+    .form-area {
+
+        padding:
+            0
+            10px;
+
+        margin-top:
+            -50px;
     }
 
+
+    .form-heading {
+
+        padding:
+            27px
+            24px;
+    }
+
+
+    .admission-body {
+
+        padding:
+            30px
+            22px;
+    }
+
+
     .form-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .form-group.full {
+
         grid-column: auto;
     }
 
+
     .section-heading {
+
         align-items: flex-start;
 
         flex-wrap: wrap;
     }
 
+
     .section-heading span {
+
         width: 100%;
 
         margin-left: 48px;
@@ -614,26 +1003,32 @@ body {
         margin-top: -5px;
     }
 
+
     .form-bottom {
+
         flex-direction: column;
 
         align-items: stretch;
     }
 
-    .security-note {
-        align-items: flex-start;
-    }
 
     .form-buttons {
+
         width: 100%;
     }
 
+
     .school-btn {
+
         flex: 1;
     }
 
+
     .admission-footer {
-        padding: 17px 22px;
+
+        padding:
+            17px
+            22px;
 
         flex-direction: column;
 
@@ -642,66 +1037,137 @@ body {
         gap: 8px;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="school-admission">
-
-<div class="admission-card">
 
 <!-- =========================================================
      HEADER
 ========================================================= -->
 
-<div class="admission-header">
+<header class="topbar">
 
-    <div class="school-badge">
+    <div class="brand">
 
-        <div class="school-icon">
+        <div class="logo">
             🎓
         </div>
 
-        School Management System
+        <div class="brand-text">
+
+            School Management System
+
+            <small>
+                Admissions & Student Services
+            </small>
+
+        </div>
 
     </div>
 
-    <h1>
-        School Admission Enquiry
-    </h1>
+</header>
 
-    <p>
-        Begin your child's academic journey with us.
-        Submit your admission enquiry and our admissions
-        team will get in touch with you.
-    </p>
-
-</div>
 
 
 <!-- =========================================================
-     ZOHO CRM WEBFORM
+     HERO
 ========================================================= -->
 
-<div class="admission-body">
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🎓 ADMISSIONS OPEN
+        </div>
+
+
+        <h1>
+            Begin Your Child's<br>
+            Academic Journey
+        </h1>
+
+
+        <p>
+            Submit an admission enquiry and our
+            admissions team will contact you with
+            the next steps.
+        </p>
+
+
+        <a
+            href="#admission-form"
+            class="hero-button"
+        >
+            Start Admission Enquiry&nbsp; →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FORM
+========================================================= -->
+
+<section
+    class="form-area"
+    id="admission-form"
+>
+
+<div class="form-card">
+
+
+    <!-- FORM HEADING -->
+
+    <div class="form-heading">
+
+        <h2>
+            School Admission Enquiry
+        </h2>
+
+        <p>
+            Please provide the required parent,
+            student and admission information below.
+        </p>
+
+    </div>
+
+
+
+    <!-- FORM BODY -->
+
+    <div class="admission-body">
+
 
 <form
     id="webform1421190000000556169"
     action="https://crm.zoho.in/crm/WebToLeadForm"
     name="WebToLeads1421190000000556169"
     method="POST"
-    onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1421190000000556169()'
     accept-charset="UTF-8"
+    onsubmit="return checkMandatory1421190000000556169();"
 >
 
-<!-- DO NOT REMOVE -->
+
+<!-- =========================================================
+     ZOHO REQUIRED HIDDEN FIELDS
+========================================================= -->
+
 <input
     type="text"
     style="display:none;"
     name="xnQsjsdp"
     value="0c520ac946feb64893b7c2f3cdf678523b5dce44884c736f0703905f63ab3deb"
 >
+
 
 <input
     type="hidden"
@@ -710,12 +1176,14 @@ body {
     value=""
 >
 
+
 <input
     type="text"
     style="display:none;"
     name="xmIwtLD"
     value="667ec70b6d68c53887ce7920ed6ae40495e92e851b45196a199ad8dd3027fc7ec676ecfe1613b1d206d4fe028a62459a"
 >
+
 
 <input
     type="text"
@@ -724,6 +1192,7 @@ body {
     value="TGVhZHM="
 >
 
+
 <input
     type="text"
     style="display:none;"
@@ -731,11 +1200,14 @@ body {
     value="null"
 >
 
+
+
 <!-- =========================================================
-     SECTION 01 — PARENT
+     SECTION 01
 ========================================================= -->
 
 <div class="form-section">
+
 
 <div class="section-heading">
 
@@ -743,9 +1215,9 @@ body {
         01
     </div>
 
-    <h2>
+    <h3>
         Parent / Guardian Information
-    </h2>
+    </h3>
 
     <span>
         Your contact details
@@ -754,13 +1226,20 @@ body {
 </div>
 
 
+
 <div class="form-grid">
+
+
+<!-- FIRST NAME -->
 
 <div class="form-group">
 
 <label for="First_Name">
+
     Parent / Guardian First Name
+
 </label>
+
 
 <input
     type="text"
@@ -773,12 +1252,19 @@ body {
 </div>
 
 
+
+<!-- LAST NAME -->
+
 <div class="form-group">
 
 <label for="Last_Name">
+
     Parent / Guardian Last Name
+
     <span class="required">*</span>
+
 </label>
+
 
 <input
     type="text"
@@ -791,11 +1277,17 @@ body {
 </div>
 
 
+
+<!-- EMAIL -->
+
 <div class="form-group">
 
 <label for="Email">
+
     Email Address
+
 </label>
+
 
 <input
     type="email"
@@ -808,11 +1300,17 @@ body {
 </div>
 
 
+
+<!-- PHONE -->
+
 <div class="form-group">
 
 <label for="Phone">
+
     Phone Number
+
 </label>
+
 
 <input
     type="text"
@@ -824,19 +1322,23 @@ body {
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <div class="form-divider"></div>
 
 
+
 <!-- =========================================================
-     SECTION 02 — STUDENT
+     SECTION 02
 ========================================================= -->
 
 <div class="form-section">
+
 
 <div class="section-heading">
 
@@ -844,9 +1346,9 @@ body {
         02
     </div>
 
-    <h2>
+    <h3>
         Student Information
-    </h2>
+    </h3>
 
     <span>
         Student details
@@ -855,13 +1357,20 @@ body {
 </div>
 
 
+
 <div class="form-grid">
+
+
+<!-- STUDENT NAME -->
 
 <div class="form-group full">
 
 <label for="LEADCF1">
+
     Student Name
+
 </label>
+
 
 <input
     type="text"
@@ -874,45 +1383,47 @@ body {
 </div>
 
 
+
+<!-- DOB -->
+
 <div class="form-group">
 
 <label for="LEADCF52">
+
     Student Date of Birth
+
 </label>
+
 
 <input
     type="text"
     id="LEADCF52"
     name="LEADCF52"
     maxlength="20"
-    ftype="date"
     placeholder="DD/MM/YYYY"
-    aria-placeholder="DD/MM/YYYY"
-    tplid="1421190000000556169LEADCF52"
     autocomplete="off"
-    onfocus="formCalender.stEv(event);formCalender.createCalendar(this);"
+    inputmode="numeric"
 >
 
-<div
-    id="template1421190000000556169LEADCF52"
-    onclick="formCalender.stEv(event);"
-    class="tempCalDiv"
->
-</div>
 
 </div>
 
+
+
+<!-- GENDER -->
 
 <div class="form-group">
 
 <label for="LEADCF2">
+
     Gender
+
 </label>
+
 
 <select
     id="LEADCF2"
     name="LEADCF2"
-    onchange="addAriaSelected1421190000000556169()"
 >
 
 <option value="-None-">
@@ -935,19 +1446,23 @@ body {
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <div class="form-divider"></div>
 
 
+
 <!-- =========================================================
-     SECTION 03 — ADMISSION
+     SECTION 03
 ========================================================= -->
 
 <div class="form-section">
+
 
 <div class="section-heading">
 
@@ -955,9 +1470,9 @@ body {
         03
     </div>
 
-    <h2>
+    <h3>
         Admission Details
-    </h2>
+    </h3>
 
     <span>
         Academic information
@@ -966,7 +1481,11 @@ body {
 </div>
 
 
+
 <div class="form-grid">
+
+
+<!-- CLASS -->
 
 <div class="form-group">
 
@@ -978,31 +1497,63 @@ body {
 
 </label>
 
+
 <select
     id="LEADCF4"
     name="LEADCF4"
-    onchange="addAriaSelected1421190000000556169()"
 >
 
 <option value="-None-">
     Select class
 </option>
 
-<option value="Class 1">Class 1</option>
-<option value="Class 2">Class 2</option>
-<option value="Class 3">Class 3</option>
-<option value="Class 4">Class 4</option>
-<option value="Class 5">Class 5</option>
-<option value="Class 6">Class 6</option>
-<option value="Class 7">Class 7</option>
-<option value="Class 8">Class 8</option>
-<option value="Class 9">Class 9</option>
-<option value="Class 10">Class 10</option>
+<option value="Class 1">
+    Class 1
+</option>
+
+<option value="Class 2">
+    Class 2
+</option>
+
+<option value="Class 3">
+    Class 3
+</option>
+
+<option value="Class 4">
+    Class 4
+</option>
+
+<option value="Class 5">
+    Class 5
+</option>
+
+<option value="Class 6">
+    Class 6
+</option>
+
+<option value="Class 7">
+    Class 7
+</option>
+
+<option value="Class 8">
+    Class 8
+</option>
+
+<option value="Class 9">
+    Class 9
+</option>
+
+<option value="Class 10">
+    Class 10
+</option>
 
 </select>
 
 </div>
 
+
+
+<!-- ACADEMIC YEAR -->
 
 <div class="form-group">
 
@@ -1014,10 +1565,10 @@ body {
 
 </label>
 
+
 <select
     id="LEADCF3"
     name="LEADCF3"
-    onchange="addAriaSelected1421190000000556169()"
 >
 
 <option value="-None-">
@@ -1036,19 +1587,23 @@ body {
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <div class="form-divider"></div>
 
 
+
 <!-- =========================================================
-     SECTION 04 — LOCATION
+     SECTION 04
 ========================================================= -->
 
 <div class="form-section">
+
 
 <div class="section-heading">
 
@@ -1056,9 +1611,9 @@ body {
         04
     </div>
 
-    <h2>
+    <h3>
         Location
-    </h2>
+    </h3>
 
     <span>
         Contact location
@@ -1067,13 +1622,20 @@ body {
 </div>
 
 
+
 <div class="form-grid">
+
+
+<!-- COUNTRY -->
 
 <div class="form-group">
 
 <label for="Address_-_Country_/_Region">
+
     Country / Region
+
 </label>
+
 
 <select
     id="Address_-_Country_/_Region"
@@ -1084,16 +1646,26 @@ body {
     Select country
 </option>
 
+<option value="India">
+    India
+</option>
+
 </select>
 
 </div>
 
 
+
+<!-- CITY -->
+
 <div class="form-group">
 
 <label for="Address_-_City">
+
     City
+
 </label>
+
 
 <input
     type="text"
@@ -1105,9 +1677,11 @@ body {
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <!-- =========================================================
@@ -1116,28 +1690,34 @@ body {
 
 <div class="form-bottom">
 
+
 <div class="security-note">
 
-<div class="security-icon">
-    🔒
+    <div class="security-icon">
+        🔒
+    </div>
+
+    <div>
+        Your enquiry is securely submitted
+        to our admissions team.
+    </div>
+
 </div>
 
-<div>
-    Your enquiry is securely submitted
-    to our admissions team.
-</div>
-
-</div>
 
 
 <div class="form-buttons">
+
 
 <button
     type="reset"
     class="school-btn school-btn-secondary"
 >
+
     Reset
+
 </button>
+
 
 
 <button
@@ -1145,10 +1725,14 @@ body {
     id="formsubmit"
     class="school-btn school-btn-primary"
 >
-    Submit Enquiry →
+
+    Submit Enquiry&nbsp; →
+
 </button>
 
+
 </div>
+
 
 </div>
 
@@ -1158,759 +1742,322 @@ body {
 </div>
 
 
+
 <!-- =========================================================
      FOOTER
 ========================================================= -->
 
 <div class="admission-footer">
 
+
 <div>
+
     School Management System
+
 </div>
+
 
 <div class="crm-status">
 
-<span class="status-dot"></span>
+    <span class="status-dot"></span>
 
-Securely connected to Zoho CRM
-
-</div>
+    Securely connected to Zoho CRM
 
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+
+</section>
+
 
 
 <!-- =========================================================
-     ZOHO CALENDAR / VALIDATION
+     VALIDATION
 ========================================================= -->
 
 <script>
-
-var formCalender = {
-
-    userPattern: 'YYYY-MM-DD',
-
-    currDateObj: void 0,
-
-    currMonth: void 0,
-
-    currYear: void 0,
-
-    currDate: void 0,
-
-    currMonthEnd: [
-        31,28,31,30,31,30,
-        31,31,30,31,30,31
-    ],
-
-    monthName: void 0,
-
-    days: void 0,
-
-    displayPanel: void 0,
-
-    isHideToday: void 0,
-
-    calDefColor: '#515CCB',
-
-    weekdays: {
-        1: 'Sunday',
-        2: 'Monday',
-        3: 'Tuesday',
-        4: 'Wednesday',
-        5: 'Thursday',
-        6: 'Friday',
-        7: 'Saturday'
-    },
-
-    months: {
-        1: 'January',
-        2: 'February',
-        3: 'March',
-        4: 'April',
-        5: 'May',
-        6: 'June',
-        7: 'July',
-        8: 'August',
-        9: 'September',
-        10: 'October',
-        11: 'November',
-        12: 'December'
-    },
-
-    init: function() {
-
-        this.monthName = [
-            {html:'January',value:0},
-            {html:'February',value:1},
-            {html:'March',value:2},
-            {html:'April',value:3},
-            {html:'May',value:4},
-            {html:'June',value:5},
-            {html:'July',value:6},
-            {html:'August',value:7},
-            {html:'September',value:8},
-            {html:'October',value:9},
-            {html:'November',value:10},
-            {html:'December',value:11}
-        ];
-
-        this.days = [
-            'ssunday',
-            'smonday',
-            'stuesday',
-            'swednesday',
-            'sthursday',
-            'sfriday',
-            'ssaturday'
-        ];
-
-        this.dayNamesShort = [
-            'Sun',
-            'Mon',
-            'Tue',
-            'Wed',
-            'Thu',
-            'Fri',
-            'Sat'
-        ];
-
-        this.daysBasedOnPrefernce = [
-            'ssunday',
-            'smonday',
-            'stuesday',
-            'swednesday',
-            'sthursday',
-            'sfriday',
-            'ssaturday'
-        ];
-
-        var e = this.daysBasedOnPrefernce[0];
-
-        this.daysBasedOnPrefernce.shift(1);
-
-        this.daysBasedOnPrefernce.push(e);
-
-        var t = this.dayNamesShort[0];
-
-        this.dayNamesShort.shift(1);
-
-        this.dayNamesShort.push(t);
-
-        this.currDateObj = new Date();
-
-        this.currMonth = this.currDateObj.getMonth();
-
-        this.currYear = this.currDateObj.getFullYear();
-
-        this.currDate = this.currDateObj.getDate();
-    },
-
-    createCalendar: function(e) {
-
-        var t = document.getElementsByClassName('tempCalDiv');
-
-        for(var r = 0; r < t.length; r++) {
-
-            if(t[r].style.display === 'block') {
-                t[r].style.display = 'none';
-            }
-        }
-
-        this.calendarNode = e;
-
-        this.userPattern = this.calendarNode.placeholder;
-
-        var s = this.calendarNode.value;
-
-        var i = false;
-
-        if(s) {
-
-            var l = dateFormatConvert.validate(
-                s,
-                this.userPattern
-            );
-
-            if(l) {
-
-                this.currDate = l.getDate();
-
-                this.currMonth = l.getMonth();
-
-                this.currYear = l.getFullYear();
-
-            }
-
-        } else {
-
-            i = true;
-
-            this.init();
-
-        }
-
-        this.monthName || this.init();
-
-        this.createDatePicker(
-            this.currDate,
-            this.currMonth,
-            this.currYear,
-            i,
-            false
-        );
-    },
-
-    createDatePicker: function(e,t,a,r,n) {
-
-        var s = new Date(a,t,1);
-
-        var i = 6;
-
-        var l =
-            this.daysBasedOnPrefernce
-            .indexOf(this.days[s.getDay()]) + 1;
-
-        var d = this.monthName[t].html + ' ' + a;
-
-        var h =
-            '<div id="calenDiv">' +
-            '<div class="aligncenter">' +
-            '<span class="sCalMon">' +
-            d +
-            '</span>' +
-            '</div>' +
-
-            '<table class="calDay" id="weekDays">' +
-            '<tr>' +
-
-            '<th>Sun</th>' +
-            '<th>Mon</th>' +
-            '<th>Tue</th>' +
-            '<th>Wed</th>' +
-            '<th>Thu</th>' +
-            '<th>Fri</th>' +
-            '<th>Sat</th>' +
-
-            '</tr>' +
-            '</table>' +
-
-            '<table id="calHeader" class="calDay">';
-
-        var c = '';
-
-        var u = new Date();
-
-        var y = a || u.getFullYear();
-
-        var v = e || u.getDate();
-
-        var g = void 0 === t ? u.getMonth() : t;
-
-        for(
-            var f,D,M,b = s.getDay();
-            1 !== b;
-        ) {
-
-            s.setDate(s.getDate()-1);
-
-            b = s.getDay();
-        }
-
-        for(var x = 1; x <= i; x++) {
-
-            h += '<tr>';
-
-            for(var Y = 1; Y < 8; Y++) {
-
-                f = s.getMonth();
-
-                D = s.getFullYear();
-
-                M = s.getDate();
-
-                var F = 'cdate';
-
-                if(f !== g) {
-                    F = 'cdate lt-gray';
-                }
-
-                if(
-                    M === v &&
-                    D === y &&
-                    f === g
-                ) {
-                    F = 'sel';
-                }
-
-                h +=
-                    '<td class="' +
-                    F +
-                    '" onclick="formCalender.displaySelectedDate(\'' +
-                    M +
-                    ' ' +
-                    f +
-                    ' ' +
-                    D +
-                    '\')">' +
-                    M +
-                    '</td>';
-
-                s.setDate(s.getDate()+1);
-            }
-
-            h += '</tr>';
-        }
-
-        h += '</table>';
-
-        h +=
-            '<div id="calBtns">' +
-            '<a href="javascript:;" ' +
-            'onclick="formCalender.displaySelectedDate(\'today\')">' +
-            'Today' +
-            '</a>' +
-            '</div>';
-
-        h += '</div>';
-
-        var C =
-            document.getElementById(
-                'template' +
-                this.calendarNode.getAttribute('tplid')
-            );
-
-        C.innerHTML = h;
-
-        C.style.display = 'block';
-    },
-
-    displaySelectedDate: function(e,t) {
-
-        if(!t) {
-            t = this.calendarNode;
-        }
-
-        if(e === 'today') {
-
-            var a = new Date();
-
-            e =
-                a.getDate() +
-                ' ' +
-                a.getMonth() +
-                ' ' +
-                a.getFullYear();
-        }
-
-        e = e.split(' ');
-
-        var r =
-            dateFormatConvert.convertFormat(
-                new Date(
-                    e[2],
-                    e[1],
-                    e[0]
-                ),
-                this.userPattern
-            );
-
-        t.value = r;
-
-        t.focus();
-
-        this.closeDatePicker();
-
-        t.blur();
-    },
-
-    closeDatePicker: function() {
-
-        var element =
-            document.getElementById(
-                'template' +
-                this.calendarNode.getAttribute('tplid')
-            );
-
-        if(element) {
-            element.style.display = 'none';
-        }
-    },
-
-    stEv: function(e) {
-
-        if(!e) {
-            e = window.event;
-        }
-
-        if(e) {
-            e.cancelBubble = true;
-
-            if(e.stopPropagation) {
-                e.stopPropagation();
-            }
-        }
-    }
-};
-
-
-window.onclick = function() {
-
-    var elements =
-        document.getElementsByClassName('tempCalDiv');
-
-    for(var i = 0; i < elements.length; i++) {
-
-        var r = elements[i];
-
-        if(
-            document.activeElement ===
-            document.querySelector(
-                "input[tplid='" +
-                r.id.replace('template','') +
-                "']"
-            )
-        ) {
-            return;
-        }
-
-        if(r.style.display === 'block') {
-            r.style.display = 'none';
-        }
-    }
-};
-
-
-var dateFormatConvert = {
-
-    validate: function(value,pattern) {
-
-        if(!value) {
-            return null;
-        }
-
-        var parts = value.split('/');
-
-        if(parts.length === 3) {
-
-            var day = parseInt(parts[0],10);
-
-            var month = parseInt(parts[1],10) - 1;
-
-            var year = parseInt(parts[2],10);
-
-            var date = new Date(
-                year,
-                month,
-                day
-            );
-
-            if(
-                date.getFullYear() === year &&
-                date.getMonth() === month &&
-                date.getDate() === day
-            ) {
-                return date;
-            }
-        }
-
-        return null;
-    },
-
-    convertFormat: function(date,pattern) {
-
-        var day = String(
-            date.getDate()
-        ).padStart(2,'0');
-
-        var month = String(
-            date.getMonth()+1
-        ).padStart(2,'0');
-
-        var year = date.getFullYear();
-
-        return day + '/' + month + '/' + year;
-    }
-};
-
-
-/* =========================================================
-   ARIA
-========================================================= */
-
-function addAriaSelected1421190000000556169() {
-
-    var optionElem = event.target;
-
-    if(!optionElem) {
-        return;
-    }
-
-    var previousSelectedOption =
-        optionElem.querySelector(
-            '[aria-selected=true]'
-        );
-
-    if(previousSelectedOption) {
-
-        previousSelectedOption.removeAttribute(
-            'aria-selected'
-        );
-    }
-
-    if(optionElem.options.length > 0) {
-
-        optionElem.options[
-            optionElem.selectedIndex
-        ].setAttribute(
-            'aria-selected',
-            'true'
-        );
-    }
-}
-
-
-/* =========================================================
-   EMAIL VALIDATION
-========================================================= */
 
 function validateEmail1421190000000556169() {
 
     var form =
         document.forms[
-            'WebToLeads1421190000000556169'
+            "WebToLeads1421190000000556169"
         ];
 
-    var emailFld =
-        form.querySelectorAll(
-            '[ftype=email]'
-        );
+    var email =
+        form["Email"];
 
-    for(
-        var i = 0;
-        i < emailFld.length;
-        i++
+    if (!email) {
+        return true;
+    }
+
+    var value =
+        email.value.trim();
+
+    if (value.length === 0) {
+        return true;
+    }
+
+    var atpos =
+        value.indexOf("@");
+
+    var dotpos =
+        value.lastIndexOf(".");
+
+    if (
+        atpos < 1 ||
+        dotpos < atpos + 2 ||
+        dotpos + 2 >= value.length
     ) {
 
-        var emailVal =
-            emailFld[i].value;
+        alert(
+            "Please enter a valid email address."
+        );
 
-        if(
-            emailVal
-            .replace(/^\s+|\s+$/g,'')
-            .length !== 0
-        ) {
+        email.focus();
 
-            var atpos =
-                emailVal.indexOf('@');
-
-            var dotpos =
-                emailVal.lastIndexOf('.');
-
-            if(
-                atpos < 1 ||
-                dotpos < atpos + 2 ||
-                dotpos + 2 >= emailVal.length
-            ) {
-
-                alert(
-                    'Please enter a valid email address.'
-                );
-
-                emailFld[i].focus();
-
-                return false;
-            }
-        }
+        return false;
     }
 
     return true;
 }
 
 
-/* =========================================================
-   DATE VALIDATION
-========================================================= */
 
 function validateDateFormat1421190000000556169() {
 
     var form =
         document.forms[
-            'WebToLeads1421190000000556169'
+            "WebToLeads1421190000000556169"
         ];
 
-    var dateFlds =
-        form.querySelectorAll(
-            '[ftype=date]'
+    var dateField =
+        form["LEADCF52"];
+
+    if (!dateField) {
+        return true;
+    }
+
+    var value =
+        dateField.value.trim();
+
+    if (value === "") {
+        return true;
+    }
+
+
+    var pattern =
+        /^([0-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/([0-9]{4})$/;
+
+
+    if (!pattern.test(value)) {
+
+        alert(
+            "Please enter a valid date in DD/MM/YYYY format."
         );
 
-    for(
-        var i = 0;
-        i < dateFlds.length;
-        i++
+        dateField.focus();
+
+        return false;
+    }
+
+
+    var parts =
+        value.split("/");
+
+    var day =
+        parseInt(parts[0],10);
+
+    var month =
+        parseInt(parts[1],10);
+
+    var year =
+        parseInt(parts[2],10);
+
+
+    var date =
+        new Date(
+            year,
+            month - 1,
+            day
+        );
+
+
+    if (
+        date.getFullYear() !== year ||
+        date.getMonth() !== month - 1 ||
+        date.getDate() !== day
     ) {
 
-        var dateFld =
-            dateFlds[i];
+        alert(
+            "Please enter a valid date."
+        );
 
-        var usrPtrn =
-            dateFld.placeholder;
+        dateField.focus();
 
-        var dateVal =
-            dateFld.value;
-
-        if(
-            dateVal.trim() !== ''
-        ) {
-
-            var vald =
-                dateFormatConvert.validate(
-                    dateVal,
-                    usrPtrn
-                );
-
-            if(!vald) {
-
-                alert(
-                    'Please enter a valid date.'
-                );
-
-                dateFld.focus();
-
-                return false;
-            }
-        }
+        return false;
     }
+
 
     return true;
 }
 
 
-/* =========================================================
-   MANDATORY VALIDATION
-========================================================= */
 
 function checkMandatory1421190000000556169() {
 
-    var mndFileds = [
-        'Last Name',
-        'LEADCF3',
-        'LEADCF4'
-    ];
-
-    var fldLangVal = [
-        'Parent/Guardian last name',
-        'Admission Academic Year',
-        'Admission Class'
-    ];
-
     var form =
         document.forms[
-            'WebToLeads1421190000000556169'
+            "WebToLeads1421190000000556169"
         ];
 
-    for(
-        var i = 0;
-        i < mndFileds.length;
-        i++
+
+    /* ---------------------------------------------
+       LAST NAME
+    --------------------------------------------- */
+
+    var lastName =
+        form["Last Name"];
+
+
+    if (
+        !lastName ||
+        lastName.value.trim() === ""
     ) {
 
-        var fieldObj =
-            form[mndFileds[i]];
+        alert(
+            "Parent/Guardian last name cannot be empty."
+        );
 
-        if(fieldObj) {
-
-            if(
-                fieldObj.value
-                .replace(/^\s+|\s+$/g,'')
-                .length === 0
-            ) {
-
-                alert(
-                    fldLangVal[i] +
-                    ' cannot be empty.'
-                );
-
-                fieldObj.focus();
-
-                return false;
-
-            } else if(
-                fieldObj.nodeName === 'SELECT'
-            ) {
-
-                if(
-                    fieldObj.options[
-                        fieldObj.selectedIndex
-                    ].value === '-None-'
-                ) {
-
-                    alert(
-                        fldLangVal[i] +
-                        ' cannot be none.'
-                    );
-
-                    fieldObj.focus();
-
-                    return false;
-                }
-            }
+        if (lastName) {
+            lastName.focus();
         }
+
+        return false;
     }
 
 
-    if(
+
+    /* ---------------------------------------------
+       ACADEMIC YEAR
+    --------------------------------------------- */
+
+    var academicYear =
+        form["LEADCF3"];
+
+
+    if (
+        !academicYear ||
+        academicYear.value === "-None-" ||
+        academicYear.value.trim() === ""
+    ) {
+
+        alert(
+            "Admission Academic Year cannot be empty."
+        );
+
+        if (academicYear) {
+            academicYear.focus();
+        }
+
+        return false;
+    }
+
+
+
+    /* ---------------------------------------------
+       CLASS
+    --------------------------------------------- */
+
+    var admissionClass =
+        form["LEADCF4"];
+
+
+    if (
+        !admissionClass ||
+        admissionClass.value === "-None-" ||
+        admissionClass.value.trim() === ""
+    ) {
+
+        alert(
+            "Admission Class cannot be empty."
+        );
+
+        if (admissionClass) {
+            admissionClass.focus();
+        }
+
+        return false;
+    }
+
+
+
+    /* ---------------------------------------------
+       EMAIL
+    --------------------------------------------- */
+
+    if (
         !validateEmail1421190000000556169()
     ) {
+
         return false;
     }
 
 
-    if(
+
+    /* ---------------------------------------------
+       DATE
+    --------------------------------------------- */
+
+    if (
         !validateDateFormat1421190000000556169()
     ) {
+
         return false;
     }
 
+
+
+    /* ---------------------------------------------
+       SMART URL SUPPORT
+    --------------------------------------------- */
 
     var urlparams =
         new URLSearchParams(
             window.location.search
         );
 
-    if(
-        urlparams.has('service') &&
-        urlparams.get('service') === 'smarturl'
+
+    if (
+        urlparams.has("service") &&
+        urlparams.get("service") === "smarturl"
     ) {
 
         var webform =
             document.getElementById(
-                'webform1421190000000556169'
+                "webform1421190000000556169"
             );
 
-        var service =
-            urlparams.get('service');
 
         var smarturlfield =
-            document.createElement('input');
+            document.createElement("input");
 
-        smarturlfield.setAttribute(
-            'type',
-            'hidden'
-        );
 
-        smarturlfield.setAttribute(
-            'value',
-            service
-        );
+        smarturlfield.type =
+            "hidden";
 
-        smarturlfield.setAttribute(
-            'name',
-            'service'
-        );
+
+        smarturlfield.value =
+            "smarturl";
+
+
+        smarturlfield.name =
+            "service";
+
 
         webform.appendChild(
             smarturlfield
@@ -1918,20 +2065,29 @@ function checkMandatory1421190000000556169() {
     }
 
 
-    document.querySelector(
-        '.school-btn-primary'
-    ).setAttribute(
-        'disabled',
-        true
-    );
 
-    document.querySelector(
-        '.school-btn-primary'
-    ).style.opacity = '0.7';
+    /* ---------------------------------------------
+       SUBMITTING STATE
+    --------------------------------------------- */
 
-    document.querySelector(
-        '.school-btn-primary'
-    ).innerHTML = 'Submitting...';
+    var submitButton =
+        document.getElementById(
+            "formsubmit"
+        );
+
+
+    if (submitButton) {
+
+        submitButton.disabled =
+            true;
+
+        submitButton.style.opacity =
+            "0.7";
+
+        submitButton.innerHTML =
+            "Submitting...";
+    }
+
 
     return true;
 }
@@ -1939,14 +2095,16 @@ function checkMandatory1421190000000556169() {
 </script>
 
 
+
 <!-- =========================================================
-     ZOHO DEPENDENCY SCRIPT
+     ZOHO WEBFORM DEPENDENCY
 ========================================================= -->
 
 <script
-id="webformDependencyScript1421190000000556169"
-src="https://crm.zohopublic.in/crm/WebFormDependencies?rid=770fba0d62ec635424d031c9aed41f1e1f3990504d49d6038bd1f706ed7202e">
+    id="webformDependencyScript1421190000000556169"
+    src="https://crm.zohopublic.in/crm/WebFormDependencies?rid=770fba0d62ec635424d031c9aed41f1e1f3990504d49d6038bd1f706ed7202e">
 </script>
+
 
 
 <!-- =========================================================
@@ -1954,9 +2112,11 @@ src="https://crm.zohopublic.in/crm/WebFormDependencies?rid=770fba0d62ec635424d03
 ========================================================= -->
 
 <script
-id="wf_anal"
-src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=67e57d230d242ab4f02404a6cb78aced23527c08169314c4f20e7e6bc3d452f399f34c637c3d8f1066b123e66a921f27gid39a5030c5a6fb463320ffdf7ba1a230ca83574eefcc1097330c81102f3f9ed50gid3796ae8c228d663f2e7aa24b791f0899e23437ad6a0bcdb2f6c9d4464a12a43fgid634b73f6f4464689fe9286330b2ccc9d5d7bbb805a31076dccf12c19cb67969a&tw=17dac46024c2910b5628ffa1a2ea4b9aab3353fa81858404f983968906d5bbff&version=v2">
+    id="wf_anal"
+    src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=67e57d230d242ab4f02404a6cb78aced23527c08169314c4f20e7e6bc3d452f399f34c637c3d8f1066b123e66a921f27gid39a5030c5a6fb463320ffdf7ba1a230ca83574eefcc1097330c81102f3f9ed50gid3796ae8c228d663f2e7aa24b791f0899e23437ad6a0bcdb2f6c9d4464a12a43fgid634b73f6f4464689fe9286330b2ccc9d5d7bbb805a31076dccf12c19cb67969a&tw=17dac46024c2910b5628ffa1a2ea4b9aab3353fa81858404f983968906d5bbff&version=v2">
 </script>
 
+
 </body>
+
 </html>
